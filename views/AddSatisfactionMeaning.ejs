@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <div style="padding: 20px; ">
+        <form action = "/SatisfactionMeaning/add" method = "POST" class = "Add">
+        <br><br><br>
+        <label for = "AppointmentSatisfaction"> Appointment Satisfaction Rating: </label>
+        <input type = "text" id = "AppointmentSatisfaction" name = "AppointmentSatisfaction">
+        <label for = "SatisfactionMeaning"> Meaning of Rating: </label>
+        <input type = "text" id = "SatisfactionMeaning" name = "SatisfactionMeaning">
+
+    
+        <br><br>
+
+        <input type = "submit">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

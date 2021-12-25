@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <style> 
+        table{
+            border-collapse: collapse;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        th, td{
+            padding: 5px;
+            text-align: center;
+        }
+        th{
+            background-color: rgb(200, 220, 255);
+        }
+    </style>
+    <main>
+        <div>
+             <a href = "/Customer/add" class = "btn btn-info" style= "margin-top: 10px; margin-bottom: 10px; margin-left: 35%;"> Add Customer </a>
+        </div>
+            <table id = Customer> 
+                <tr>
+                    <th style="width: 50px">ID</th>
+                    <th>Customer First Name</th> 
+                    <th>Customer Last Name</th> 
+                    <th>Customer Home Number</th>
+                    <th>Customer Cell Number</th>
+                    <th>StateID</th>
+                    <th>CountryID</th>
+                    <th>Status</th>
+                    <th>CustomerStrike</th>
+                    <th>CustomerStrikeComment</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+                <% locals.Customer.forEach(function(Customers) { %> 
+                <tr>
+                    <td><%= Customers.CustomerID %> </td>
+                    <td><%= Customers.CustomerFirstName %> </td> 
+                    <td><%= Customers.CustomerLastName %> </td> 
+                    <td><%= Customers.CustomerHomeNumber %> </td> 
+                    <td><%= Customers.CustomerCellNumber %> </td> 
+                    <td><%= Customers.StateID %> </td> 
+                    <td><%= Customers.CountryID %> </td> 
+                    <td><%= Customers.CustomerStatusID %> </td> 
+                    <td><%= Customers.CustomerStrike %></td>
+                    <td><%= Customers.StrikeComment %></td>
+                    <td>
+                    <form action = "/Customer/update/<%= Customers.CustomerID %>" method = "GET">
+                        <input type = "hidden" name = "id" value = <%= Customers.CustomerID %>> 
+                        <input type = "submit" value = "Update" class = "btn btn-primary">
+                    </form>
+                    </td>
+                    <td>
+                    <form action = "/Customer/delete/<%= Customers.CustomerID %>" method = "GET">
+                        <input type = "hidden" name = "id" value = <%= Customers.CustomerID %>> 
+                        <input type = "submit" value = "Delete" class = "btn btn-danger"> 
+                    </td>
+                    </form>
+                </tr>
+                <% }); %>
+            </table>
+            </div>
+            <br><br>
+    </main>
+</body>
+</html>

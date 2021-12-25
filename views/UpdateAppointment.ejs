@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    <style>h1 {text-align: center;}</style>
+        
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <div style="padding: 20px; border: solid; margin-top: 10%;">
+<!--CHECK FOR PROBLEMS GETTING ID FROM JS SIDE-->
+        <h1>Update Appointment</h1>
+        <br>
+        <br>
+
+        <form action = "/Appointment/update/<%= locals.id %>" method = "post" class = "Update">
+            <% Appointment.forEach(function(Appointments) { %>
+            <label for = "CustomerFirstName"> Customer First Name: </label>                           <!--CHECK THIS FOR ERROR WHEN TRYING TO DO AUTO FILL-->
+            <input type = "text" id = "CustomerFirstName" name = "CustomerFirstName" value = "<%= Appointments.ServiceName %>">
+            <label for = "CustomerLastName" style="margin-left: 10%;">  Customer Last Name: </label>
+            <input type = "text" id = "CustomerLastName" name = "CustomerLastName" value = "<%= Appointments.TypeofService %>">
+            <label for = "EmployeeFirstName" style="margin-left: 10%;"> Employee First Name: </label>
+            <input type = "text" id = "EmployeeFirstName" name = "EmployeeFirstName" value = "<%= Appointments.ServicePrice %>">
+            <label for = "EmployeeLastName" style="margin-left: 10%;"> Employee Last Name: </label>
+            <input type = "text" id = "EmployeeLastName" name = "EmployeeLastName" value = "<%= Appointments.ServiceDuration %>">
+            <label for = "AppointmentDate" style="margin-left: 10%;"> Appointment Date: </label>
+            <input type = "text" id = "AppointmentDate" name = "AppointmentDate" value = "<%= Appointments.AppointmentDate %>">
+            <label for = "AppointmentTime" style="margin-left: 10%;"> Appointment Time: </label>
+            <input type = "text" id = "AppointmentTime" name = "AppointmentTime" value = "<%= Appointments.AppointmentTime %>">
+            <label for = "ServiceName" style="margin-left: 10%;"> Service Name: </label>
+            <input type = "text" id = "ServiceName" name = "ServiceName" value = "<%= Appointments.AppointmentDate %>">
+            <% }); %>
+
+            <br>
+        <input type = "submit" value = "Update" class = "btn btn-primary" style="margin-top: 2%;">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

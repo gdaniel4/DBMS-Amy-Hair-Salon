@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <div style="padding: 20px; border-style: solid;">
+        <form action = "/Manufacturer/add" method = "POST" class = "Add">
+        <br><br><br>
+        <label for = "ManufacturerName"> Manufacturer: </label>
+        <input type = "text" id = "ManufacturerName" name = "ManufacturerName">
+        <label for = "Country" style="margin-left: 10%;"> Country: </label>
+        <select id = "Country" name = "Country"> 
+            <% Country.forEach(function(Countrys) { %>
+            <option><%= Countrys.CountryName %></option>
+            <% }); %>
+        </select>
+        <br><br>
+        <label for = "ManufacturerPhoneNumber"> Manufacturer Phone Number: </label>
+        <input type = "text" id = "ManufacturerPhoneNumber" name = "ManufacturerPhoneNumber">
+        <label for = "ManufacturerEmail" style="margin-left: 10%;"> Manufacturer Email: </label>
+        <input type = "text" id = "ManufacturerEmail" name = "ManufacturerEmail">
+        <br><br>
+        <input type = "submit">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

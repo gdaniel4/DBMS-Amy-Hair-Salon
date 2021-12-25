@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    <style>h1 {text-align: center;}</style>
+        
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <div style="padding: 20px; border: solid; margin-top: 10%;">
+<!--CHECK FOR PROBLEMS GETTING ID FROM JS SIDE-->
+        <h1>Update Skill</h1>
+        <br>
+        <br>
+
+        <form action = "/Skill/update/<%= locals.id %>" method = "POST" class = "Update">
+            <% Skill.forEach(function(Skills) { %>
+            <label for = "SkillName"> Skill Name: </label>
+            <input type = "text" id = "SkillName" name = "SkillName" value = "<%= Skills.SkillName %>">
+            <% }); %>
+
+        <br>
+        <input type = "submit" value = "Update" class = "btn btn-primary" style="margin-top: 2%;">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

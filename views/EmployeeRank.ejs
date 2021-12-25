@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <style> 
+        table{
+            border-collapse: collapse;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        th, td{
+            padding: 5px;
+            text-align: center;
+        }
+        th{
+            background-color: rgb(200, 220, 255);
+        }
+    </style>
+    <main>
+        <div>
+             <a href = "/EmployeeRank/add" class = "btn btn-info" style= "margin-top: 10px; margin-bottom: 10px; margin-left: 35%;"> Add Employee Rank </a>
+        </div>
+            <table id = EmployeeRank> 
+                <tr>
+                    <th style="width: 50px">ID</th>
+                    <th>Employee Rank</th> 
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+                <% locals.EmployeeRank.forEach(function(EmployeeRanks) { %> 
+                <tr>
+                    <td><%= EmployeeRanks.EmployeeRankID %> </td>
+                    <td><%= EmployeeRanks.RankTitle %> </td>
+                    <td>
+                    <form action = "/EmployeeRank/update/<%= EmployeeRanks.EmployeeRankID %>" method = "GET">
+                        <input type = "hidden" name = "id" value = <%= EmployeeRank.EmployeeRankID %>> 
+                        <input type = "submit" value = "Update" class = "btn btn-primary">
+                    </form>
+                    </td>
+                    <td>
+                    <form action = "/EmployeeRank/delete/<%= EmployeeRanks.EmployeeRankID %>" method = "GET">
+                        <input type = "hidden" name = "id" value = <%= EmployeeRanks.EmployeeRankID %>> 
+                        <input type = "submit" value = "Delete" class = "btn btn-danger"> 
+                    </td>
+                    </form>
+                </tr>
+                <% }); %>
+            </table>
+            </div>
+            <br><br>
+    </main>
+</body>
+</html>

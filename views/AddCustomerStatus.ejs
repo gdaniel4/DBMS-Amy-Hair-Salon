@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <br><br>
+        <div style="padding: 20px; border-style: solid; width: 700px; margin-right: auto; margin-left: auto;">
+        <form action = "/CustomerStatus/add" method = "POST" class = "Add">
+        <label for = "StatusDescription" style="margin-left: 10%;"> Status Description: </label>
+        <input type = "text" id = "StatusDescription" name = "StatusDescription">
+        <br><br>
+        <input type = "submit">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

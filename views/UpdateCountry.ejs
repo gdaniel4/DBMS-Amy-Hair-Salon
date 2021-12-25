@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <br><br>
+        <div style="padding: 20px; border-style: solid;">
+        <form action = "/Country/update/<%= locals.id %>" method = "POST" class = "Add">
+            <% Country.forEach(function(Countrys) { %>
+        <br><br><br>
+        <label for = "CountryCode"> CountryCode: </label>
+        <input type = "text" id = "CountryCode" name = "CountryCode" value = "<%= Countrys.CountryCode %>">
+        <label for = "CountryInitial" style="margin-left: 10%;"> Country Initial: </label>
+        <input type = "text" id = "CountryInitial" name = "CountryInitial" value = "<%= Countrys.CountryInitial %>">
+        <br><br>
+        <label for = "CountryName" style="margin-left: 10%;"> Country Name: </label>
+        <input type = "text" id = "CountryName" name = "CountryName" value = "<%= Countrys.CountryName %>">
+        <br><br>
+        <% }); %>
+        <input type = "submit">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

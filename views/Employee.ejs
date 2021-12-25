@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file--> 
+    </header> 
+    <style> 
+        table{
+            border-collapse: collapse;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        th, td{
+            padding: 3px;
+        }
+        th{
+            background-color: rgb(200, 220, 255);
+        }
+    </style>
+    <main>
+        <div>
+            <a href = "/Employee/add" class = "btn btn-info" style= "margin-top: 10px; margin-bottom: 10px; margin-left: 35%;"> Add Employee </a>
+       </div>
+            <table id = Employee> 
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Employee First Name</th>
+                    <th>Employee Last Name</th>
+                    <th>Employee Rank ID</th>
+                    <th>Employee Home Phone</th>
+                    <th>Employee Cell Phone</th>
+                    <th>Country ID</th>
+                    <th>State ID</th>
+                    <th>Employee Street Name</th>
+                    <th>Employee City</th>
+                    <th>Employee Zip Code</th>
+                    <th>Hire Date</th>
+                    <th>Employee Status ID</th>
+                    <th>Add</th>
+                    <th>Delete</th>
+                </tr>
+                <% locals.Employee.forEach(function(Employees) { %> 
+                <tr>
+                    <td><%= Employees.EmployeeID %> </td>
+                    <td><%= Employees.EmployeeFirstName %> </td> 
+                    <td><%= Employees.EmployeeLastName %> </td> 
+                    <td><%= Employees.EmployeeRankID %> </td>
+                    <td><%= Employees.EmployeeHomeNumber %> </td>
+                    <td><%= Employees.EmployeeCellNumber %> </td>
+                    <td><%= Employees.CountryID %> </td>
+                    <td><%= Employees.StateID %> </td>
+                    <td><%= Employees.EmployeeStreetName %> </td>
+                    <td><%= Employees.EmployeeCity %> </td>
+                    <td><%= Employees.EmployeeZipCode %> </td>
+                    <td><%= Employees.HireDate %> </td>
+                    <td><%= Employees.EmployeeStatusID %> </td>
+                    <td>
+                    <form action = "/Employee/update/<%= Employees.EmployeeID %>" method = "GET">
+                        <input type = "hidden" name = "id" value = <%= Employees.EmployeeID %>> 
+                        <input type = "submit" value = "Update" class = "btn btn-primary">
+                    </form>
+                    </td>
+                    <td>
+                    <form action = "/Employee/delete/<%= Employees.EmployeeID %>" method = "GET">
+                        <input type = "hidden" name = "id" value = <%= Employees.EmployeeID %>> 
+                        <input type = "submit" value = "Delete" class = "btn btn-danger">
+                    </form>
+                    </td>
+                </tr>
+                <% }); %>
+            </table>
+            <br><br>
+    </main>
+</body>
+</html>

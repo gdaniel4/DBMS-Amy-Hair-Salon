@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <div style="padding: 20px; ">
+        <form action = "/ProductType/add" method = "POST" class = "Add">
+        <br><br><br>
+        <label for = "ProductType"> Type of Product: </label>
+        <input type = "text" id = "ProductType" name = "ProductType">
+        <label for = "Color"> Color (if not applicable, put N/A): </label>
+        <input type = "text" id = "Color" name = "Color">
+
+    
+        <br><br>
+
+        <input type = "submit">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

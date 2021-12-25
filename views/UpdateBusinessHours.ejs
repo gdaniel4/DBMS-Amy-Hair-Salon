@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <div style="padding: 20px; border-style: solid;">
+        <form action = "/BusinessHours/update/<%= locals.id %>" method = "POST" class = "Add">
+            <% DaysofOperation.forEach(function(DaysofOperations) { %>
+        <br><br><br>
+        <label for = "DayName" style="margin-left: 10%;"> Day Name: </label>
+        <input type = "text" id = "EmployeeFirstName" name = "DayName" value = "<%=DaysofOperations.DayName %>" >
+        <label for = "IsActive" style="margin-left: 10%;"> Is Active: </label>
+        <input type = "text" id = "IsActive" name = "IsActive" value= "<%=DaysofOperations.IsActive %>">
+        <br><br>
+            <% }); %>
+            <br><br>
+        <input type = "submit">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <br><br>
+        <div style="padding: 20px; border-style: solid; width: 700px; margin-right: auto; margin-left: auto;">
+        <form action = "/Tool/add" method = "POST" class = "Add">
+            <br>
+        <label for = "ToolName"> Tool Name: </label>
+        <input type = "text" id = "ToolName" name = "ToolName">
+        <label for = "ToolDescription" style="margin-left: 10%;"> Tool Description: </label>
+        <input type = "text" id = "ToolDescription" name = "ToolDescription">
+        <br><br>
+        <input type = "submit">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

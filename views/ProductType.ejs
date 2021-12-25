@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <style> 
+        table{
+            border-collapse: collapse;
+            width: 65%;
+            margin: 0px auto;
+        }
+        th, td{
+            padding: 5px;
+            text-align: center;
+        }
+        th{
+            background-color: rgb(200, 220, 255);
+        }
+    </style>
+    <main>
+        <div>
+             <a href = "/ProductType/add" class = "btn btn-info" style= "margin-top: 10px; margin-bottom: 10px; margin-left: 35%;"> Add Product Type </a>
+        </div>
+            <div>
+            <table id = ProductType> 
+                <tr>
+                    <th style="width: 50px">ID</th>
+                    <th>Product Type</th>
+                    <th>Color</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+                <% locals.ProductType.forEach(function(ProductTypes) { %> 
+                <tr>
+                    <td><%= ProductTypes.ProductTypeID %> </td>
+                    <td><%= ProductTypes.ProductType %> </td> 
+                    <td><%= ProductTypes.Color %> </td> 
+
+                    <td>
+                        <form action = "/ProductType/update/<%= ProductTypes.ProductTypeID %>" method = "GET">
+                            <input type = "hidden" name = "id" value = <%= ProductTypes.ProductTypeID %>> 
+                            <input type = "submit" value = "Update" class = "btn btn-primary">
+                        </form>
+                        </td>
+                        <td>
+                        <form action = "/ProductType/delete/<%= ProductTypes.ProductTypeID %>" method = "GET">
+                            <input type = "hidden" name = "id" value = <%= ProductTypes.ProductTypeID %>> 
+                            <input type = "submit" value = "Delete" class = "btn btn-danger"> 
+                        </td>
+                        </form>
+
+                </tr>
+                <% }); %>
+            </table>
+            </div>
+            <br><br>
+    </main>
+</body>
+</html>

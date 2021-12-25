@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <div style="padding: 20px; border-style: solid;">
+        <form action = "/BusinessHours/add" method = "POST" class = "Add">
+            <br>
+        <label for = "DayName" style="margin-left: 10%;"> Day Name: </label>
+        <input type = "text" id = "DayName" name = "DayName">
+        <label for = "IsActive" style="margin-left: 10%;"> Is Active: </label>
+        <input type = "text" id = "IsActive" name = "IsActive">
+        <br><br>
+        <input type = "submit">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

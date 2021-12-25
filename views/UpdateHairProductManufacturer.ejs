@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <div style="padding: 20px; border-style: solid;">
+        <form action = "/HairProductManufacturer/update/<%= locals.id %>" method = "POST" class = "Add">
+            <% HairProductManufacturer.forEach(function(HairProductManufacturers) { %>
+        <br><br>
+        <label for = "ProductName"> Product Name: </label>
+        <select id = "ProductName" name = "ProductName"> 
+            <option selected><%= HairProductManufacturers.ProductName %></option>
+            <% Product.forEach(function(Products) { %>
+            <option><%= Products.ProductName %></option>
+            <% }); %>
+        </select>        
+        <br><br>
+        <label for = "ManufacturerName"> Manufacturer Name: </label>
+        <select id = "ManufacturerName" name = "ManufacturerName"> 
+            <option selected><%= HairProductManufacturers.ManufacturerName %></option>
+            <% Manufacturer.forEach(function(Manufacturers) { %>
+            <option><%= Manufacturers.ManufacturerName %></option>
+            <% }); %>
+        </select>        
+        <br><br>
+        <label for = "HairProductManufacturerName"> Hair Product Manufacturer: </label>
+        <input type = "text" id = "HairProductManufacturerName" name = "HairProductManufacturerName" style = "width: 300px" value = "<%= HairProductManufacturers.HairProductManufacturerName %>">
+        <br><br>
+        <% }); %>
+        <input type = "submit">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

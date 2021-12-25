@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    <style>h1 {text-align: center;}</style>
+        
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <div style="padding: 20px; border: solid; margin-top: 10%;">
+<!--CHECK FOR PROBLEMS GETTING ID FROM JS SIDE-->
+        <h1>Update Services</h1>
+        <br>
+        <br>
+
+        <form action = "/Service/update/<%= locals.id %>" method = "post" class = "Update">
+            <% Service.forEach(function(Services) { %>
+            <label for = "ServiceName"> Service Name: </label>
+            <input type = "text" id = "ServiceName" name = "ServiceName" value = "<%= Services.ServiceName %>">
+            <label for = "TypeofService" style="margin-left: 10%;">  Type of Service: </label>
+            <input type = "text" id = "TypeofService" name = "TypeofService" value = "<%= Services.TypeofService %>">
+            <label for = "ServicePrice" style="margin-left: 10%;"> Price of Service: </label>
+            <input type = "text" id = "ServicePrice" name = "ServicePrice" value = "<%= Services.ServicePrice %>">
+            <label for = "ServiceDuration" style="margin-left: 10%;"> Duration: </label>
+            <input type = "text" id = "ServiceDuration" name = "ServiceDuration" value = "<%= Services.ServiceDuration %>">
+            <label for = "ServiceDescription" style="margin-left: 10%;"> Description: </label>
+            <input type = "text" id = "ServiceDescription" name = "ServiceDescription" value = "<%= Services.ServiceDescription %>">
+            <% }); %>
+
+            <br>
+        <input type = "submit" value = "Update" class = "btn btn-primary" style="margin-top: 2%;">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

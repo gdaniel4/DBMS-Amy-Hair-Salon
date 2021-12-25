@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <div style="padding: 20px; border-style: solid;">
+        <form action = "/Satisfaction/update/<%= locals.id %>" method = "POST" class = "Add">
+            <% Satisfaction.forEach(function(Satisfactions) { %>
+        <br><br><br>
+        <label for = "CustomerFirstName""> Customer First Name: </label>
+        <input type = "text" id = "CustomerFirstName" name = "CustomerFirstName" value = "<%=Satisfactions.CustomerFirstName %>">
+        <label for = "CustomerLastName" style="margin-left: 10%;"> Customer Last Name: </label>
+        <input type = "text" id = "CustomerLastName" name = "CustomerLastName" value = "<%=Satisfactions.CustomerLastName %>">
+        <br><br>
+        <label for = "AppointmentDate" style="margin-left: 10%;"> Appointment Date: </label>
+        <input type = "date" id = "AppointmentDate" name = "AppointmentDate" value = <%=Satisfactions.AppointmentDate %>>
+        <label for = "AppointmentSatisfaction" style="margin-left: 10%;"> Satisfaction: </label>
+        <select id = "ServiceName" name = "ServiceName"> 
+            <% SatisfactionMeaning.forEach(function(SatisfactionMeanings) { %>
+            <option selected><%= Satisfactions.AppointmentSatisfaction %></option>
+            <option><%= SatisfactionMeanings.AppointmentSatisfaction %></option>
+            <% }); %>
+        </select>
+        <br><br>
+        <label for = "Comments"> Comments: </label>
+            <br>
+            <textarea id = "Comments" name = "Comments" rows="6" cols="100">
+            <%= Satisfactions.Comments %>
+            </textarea>
+            <% }); %>
+            <br><br>
+        <input type = "submit">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

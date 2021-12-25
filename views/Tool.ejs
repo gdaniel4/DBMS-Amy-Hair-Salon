@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <style> 
+        table{
+            border-collapse: collapse;
+            width: 80%;
+        }
+        th, td{
+            padding: 3px;
+        }
+        th{
+            background-color: rgb(200, 220, 255);
+        }
+    </style>
+    <main>
+        <div>
+             <a href = "/Tool/add" class = "btn btn-info" style= "margin-top: 10px; margin-bottom: 10px; margin-left: 35%;"> Add Tool </a>
+        </div>
+       
+            <table id = Tool> 
+                <tr>
+                    <th>Tool ID</th>
+                    <th>Tool Name</th> 
+                    <th>Tool Description</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+                <% locals.Tool.forEach(function(Tools) { %> 
+                <tr>
+                    <td><%= Tools.ToolID %> </td>
+                    <td><%= Tools.ToolName %> </td> 
+                    <td><%= Tools.ToolDescription %> </td> 
+
+                    <td>
+                    <form action = "/Tool/update/<%= Tools.ToolID %>" method = "GET">
+                        <input type = "hidden" name = "id" value = <%= Tools.ToolID %>> 
+                        <input type = "submit" value = "Update" class = "btn btn-primary">
+                    </form>
+                    </td>
+                    <td>
+                    <form action = "/Tool/delete/<%= Tools.ToolID %>" method = "GET">
+                        <input type = "hidden" name = "id" value = <%= Tools.ToolsID %>> 
+                        <input type = "submit" value = "Delete" class = "btn btn-danger"> 
+                    </td>
+                    </form>
+                </tr>
+                <% }); %>
+            </table>
+            <br><br>
+    </main>
+</body>
+</html>

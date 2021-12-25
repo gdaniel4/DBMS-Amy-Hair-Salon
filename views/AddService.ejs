@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <div style="padding: 20px; ">
+        <form action = "/Service/add" method = "POST" class = "Add">
+        <br><br><br>
+        <label for = "ServiceName"> Name of Service: </label>
+        <input type = "text" id = "ServiceName" name = "ServiceName">
+        <label for = "TypeofService" style="margin-left: 10%;"> Type of Service (Regular or Premium): </label>
+        <input type = "text" id = "TypeofService" name = "TypeofService">
+        <label for = "ServicePrice" style="margin-left: 10%;"> Price of Service: </label>
+        <input type = "text" id = "ServicePrice" name = "ServicePrice">
+        <label for = "ServiceDuration" style="margin-left: 10%;"> Service Duration: </label>
+        <input type = "text" id = "ServiceDuration" name = "ServiceDuration">
+        <label for = "ServiceDescription" style="margin-left: 10%;"> Service Description: </label>
+        <input type = "text" id = "ServiceDescription" name = "ServiceDescription">
+    
+        <br><br>
+
+        <input type = "submit">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

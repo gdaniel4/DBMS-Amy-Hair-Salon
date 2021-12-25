@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <br><br>
+        <div style="padding: 20px; border-style: solid; width: 900px; margin-left: auto; margin-right: auto;">
+        <form action = "/HairServiceProduct/update/<%= locals.id %>" method = "POST" class = "Add">
+            <% HairServiceProduct.forEach(function(HairServiceProducts) { %>
+        <br>
+        <label for = "ProductName"> Product Name: </label>
+        <select id = "ProductName" name = "ProductName"> 
+            <option selected><%= HairServiceProducts.ProductName %></option>
+            <% Product.forEach(function(Products) { %>
+            <option><%= Products.ProductName %></option>
+            <% }); %>
+        </select>
+        <br><br>
+        <label for = "ServiceName"> Service Name: </label>
+        <select id = "ServiceName" name = "ServiceName"> 
+            <option selected><%= HairServiceProducts.ServiceName %></option>
+            <% Service.forEach(function(Services) { %>
+            <option><%= Services.ServiceName %></option>
+            <% }); %>
+        </select>
+        <br><br>
+        <label for = "QuantityUsed"> Quantity Used: </label>
+        <input type = "text" id = "QuantityUsed" name = "QuantityUsed" style="width:100px;"  value = "<%=HairServiceProducts.QuantityUsed %>">
+        <label for = "ProductVolume" style = "margin-left: 10%;"> Product Volume: </label>
+        <input type = "text" id = "ProductVolume" name = "ProductVolume" style="width:100px;"  value = "<%=HairServiceProducts.ProductVolume %>">
+        <br><br>
+        <% }); %>
+        <input type = "submit">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <br><br>
+        <div style="padding: 20px; border-style: solid;">
+        <form action = "/Employee/add" method = "POST" class = "Add">
+        <label for = "EmployeeFirstName"> Employee First Name: </label>
+        <input type = "text" id = "EmployeeFirstName" name = "EmployeeFirstName">
+        <label for = "EmployeeLastName" style="margin-left: 10%;"> Employee Last Name: </label>
+        <input type = "text" id = "EmployeeLastName" name = "EmployeeLastName">
+        <br><br>
+        <label for = "EmployeeHomeNumber"> Employee Home Number: </label>
+        <input type = "text" id = "EmployeeHomeNumber" name = "EmployeeHomeNumber">
+        <label for = "EmployeeCellNumber" style="margin-left: 10%;"> Employee Cell Number: </label>
+        <input type = "text" id = "EmployeeCellNumber" name = "EmployeeCellNumber">
+        <br><br>
+        <div>
+        <label for = "Country"> Country: </label>
+        <select id = "Country" name = "Country"> 
+            <option selected>United States of America</option>
+            <% Country.forEach(function(Countrys) { %>
+            <option><%= Countrys.CountryName %></option>
+            <% }); %>
+        </select>
+        <label for = "State" style="margin-left: 10%;"> State: </label>
+        <select id = "State" name = "State"> 
+            <option selected>TX</option>
+            <% State.forEach(function(States) { %>
+            <option><%= States.StateInitial %></option>
+            <% }); %>
+        </select>
+        <br><br>
+        <label for = "EmployeeStreetName"> Employee Street Name: </label>
+        <input type = "text" id = "EmployeeStreetName" name = "EmployeeStreetName" style = "width: 300px;">
+        <br><br>
+        <label for = "EmployeeCity style="margin-left: 10%;"> Employee City: </label>
+        <input type = "text" id = "EmployeeCity" name = "EmployeeCity">
+        <label for = "EmployeeZipCode" style="margin-left: 10%;"> Employee Zip Code: </label>
+        <input type = "text" id = "EmployeeZipCode" name = "EmployeeZipCode">
+        </div>
+        <br><br>
+        <label for = "HireDate"> Hire Date: </label>
+        <input type = "date" id = "HireDate" name = "HireDate">
+        <label for = "EmployeeStatus" style="margin-left: 10%;"> Employee Status: </label>
+        <select id = "EmployeeStatus" name = "Status"> 
+            <% EmployeeStatus.forEach(function(EmployeeStatuses) { %>
+            <option><%= EmployeeStatuses.StatusDescription %></option>
+            <% }); %>
+        </select>
+        <br><br>
+        <label for = "RankTitle" style="margin-left: 10%;"> Rank Title: </label>
+        <select id = "RankTitle" name = "RankTitle"> 
+            <% EmployeeRank.forEach(function(EmployeeRanks) { %>
+            <option><%= EmployeeRanks.RankTitle %></option>
+            <% }); %>
+        </select>
+        <br><br>
+        <input type = "submit">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

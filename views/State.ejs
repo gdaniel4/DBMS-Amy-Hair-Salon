@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <style> 
+        table{
+            border-collapse: collapse;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        th, td{
+            padding: 5px;
+            text-align: center;
+        }
+        th{
+            background-color: rgb(200, 220, 255);
+        }
+    </style>
+    <main>
+        <div>
+             <a href = "/State/add" class = "btn btn-info" style= "margin-top: 10px; margin-bottom: 10px; margin-left: 35%;"> Add State </a>
+        </div>
+            <table id = State> 
+                <tr>
+                    <th style="width: 50px">ID</th>
+                    <th>State Initial</th> 
+                    <th style="width: 100px">State Name</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                <% locals.State.forEach(function(States) { %> 
+                <tr>
+                    <td><%= States.StateID %></td>
+                    <td><%= States.StateInitial %> </td> 
+                    <td><%= States.StateName %> </td> 
+                    <td>
+                    <form action = "/State/update/<%= States.StateID %>" method = "GET">
+                        <input type = "hidden" name = "id" value = <%= States.StateID %>> 
+                        <input type = "submit" value = "Update" class = "btn btn-primary">
+                    </form>
+                    </td>
+                    <td>
+                    <form action = "/State/delete/<%= States.StateID %>" method = "GET">
+                        <input type = "hidden" name = "id" value = <%= States.StateID %>> 
+                        <input type = "submit" value = "Delete" class = "btn btn-danger"> 
+                    </td>
+                    </form>
+                </tr>
+                <% }); %>
+            </table>
+            </div>
+            <br><br>
+    </main>
+</body>
+</html>

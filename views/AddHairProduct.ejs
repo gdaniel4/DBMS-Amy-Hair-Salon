@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <div style="padding: 20px; ">
+        <form action = "/HairProduct/add" method = "POST" class = "Add">
+        <br><br><br>
+        <label for = "ProductType"> Product Type: </label>
+        <input type = "text" id = "ProductType" name = "ProductType">
+        <label for = "Color" style="margin-left: 10%;"> Color: </label>
+        <input type = "text" id = "Color" name = "Color">
+        <label for = "ProductName" style="margin-left: 10%;"> Product Name: </label>
+        <input type = "text" id = "ProductName" name = "ProductName">
+        <label for = "ProductDescription" style="margin-left: 10%;"> Product Description: </label>
+        <input type = "text" id = "ProductDescription" name = "ProductDescription">
+        <label for = "ProductVolume" style="margin-left: 10%;"> Product Volume: </label>
+        <input type = "text" id = "ProductVolume" name = "ProductVolume">
+    
+        <br><br>
+
+        <input type = "submit">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

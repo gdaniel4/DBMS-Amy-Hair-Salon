@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <div style="padding: 20px; ">
+        <form action = "/Customer/add" method = "POST" class = "Add">
+        <br><br><br>
+        <label for = "CustomerFirstName"> Customer First Name: </label>
+        <input type = "text" id = "CustomerFirstName" name = "CustomerFirstName">
+        <label for = "CustomerLastName" style="margin-left: 10%;"> Customer Last Name: </label>
+        <input type = "text" id = "CustomerLastName" name = "CustomerLastName">
+        <label for = "CustomerHomeNumber" style="margin-left: 10%;"> Customer Home Number: </label>
+        <input type = "text" id = "CustomerHomeNumber" name = "CustomerHomeNumber">
+        <label for = "CustomerCellNumber" style="margin-left: 10%;"> Customer Cell Number: </label>
+        <input type = "text" id = "CustomerCellNumber" name = "CustomerCellNumber">
+        <br>
+        <label for = "State" style="margin-left: 10%;"> State: </label>
+        <select id = "State" name = "State"> 
+            <option selected>TX</option>
+            <% State.forEach(function(States) { %>
+            <option><%= States.StateInitial %></option>
+            <% }); %>
+        </select>
+        <label for = "Country" style="margin-left: 10%;"> Country: </label>
+        <select id = "Country" name = "Country"> 
+            <option selected>United States of America</option>
+            <% Country.forEach(function(Countrys) { %>
+            <option><%= Countrys.CountryName %></option>
+            <% }); %>
+        </select>
+        <br><br>
+
+        <input type = "submit">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

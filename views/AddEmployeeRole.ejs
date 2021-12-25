@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <div style="padding: 20px; border-style: solid;">
+        <form action = "/EmployeeRole/add" method = "POST" class = "Add">
+        <br><br><br>
+        <label for = "EmployeeFirstName"> Employee First Name: </label>
+        <input type = "text" id = "EmployeeFirstName" name = "EmployeeFirstName">
+        <label for = "EmployeeLastName" style="margin-left: 10%;"> Employee Last Name: </label>
+        <input type = "text" id = "EmployeeLastName" name = "EmployeeLastName">
+        <br><br>
+        <label for = "RoleTitle" style="margin-left: 10%;"> Role: </label>
+        <select id = "RoleTitle" name = "RoleTitle"> 
+            <% Role.forEach(function(Roles) { %>
+            <option><%= Roles.RoleTitle %></option>
+            <% }); %>
+        </select>
+        <label for = "YearofRole" style="margin-left: 10%;"> Year of Role: </label>
+        <input type = "text" id = "YearofRole" name = "YearofRole">
+        <br><br>
+        <input type = "submit">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

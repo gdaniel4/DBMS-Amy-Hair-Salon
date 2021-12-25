@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <br><br>
+        <div style="padding: 20px; border-style: solid; width: 500px; margin-left: auto; margin-right: auto;">
+        <form action = "/ToolManufacturer/update/<%= locals.id %>" method = "POST" class = "Add">
+            <% ToolManufacturer.forEach(function(ToolManufacturers) { %>
+        <br>
+        <label for = "ManufacturerName"> Manufacturer Name: </label>
+        <select id = "ManufacturerName" name = "ManufacturerName"> 
+            <option selected><%= ToolManufacturers.ManufacturerName %></option>
+            <% Manufacturer.forEach(function(Manufacturers) { %>
+            <option><%= Manufacturers.ManufacturerName %></option>
+            <% }); %>
+        </select>  
+        <br><br>
+        <label for = "ToolName"> Tool Name: </label>
+        <select id = "ToolName" name = "ToolName"> 
+            <option selected><%= ToolManufacturers.ToolName %></option>
+            <% Tool.forEach(function(Tools) { %>
+            <option><%= Tools.ToolName %></option>
+            <% }); %>
+        </select>  
+        <br><br>
+        <label for = "ToolManufacturerName""> Tool Manufacturer Name: </label>
+        <input type = "text" id = "ToolManufacturerName" name = "ToolManufacturerName" value = "<%=ToolManufacturers.ToolManufacturerName %>">
+        <br><br>
+        <% }); %>
+        <input type = "submit">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

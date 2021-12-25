@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    <style>h1 {text-align: center;}</style>
+        
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <div style="padding: 20px; border: solid; margin-top: 10%;">
+<!--CHECK FOR PROBLEMS GETTING ID FROM JS SIDE-->
+        <h1>Update Services</h1>
+        <br>
+        <br>
+
+        <form action = "/Role/update/<%= locals.id %>" method = "POST" class = "Update">
+            <% Role.forEach(function(Roles) { %>
+            <label for = "RoleTitle"> Role Title: </label>
+            <input type = "text" id = "RoleTitle" name = "RoleTitle" value = "<%= Roles.RoleTitle %>"> 
+            <label for = "RoleDescription" style="margin-left: 10%;">  Description of Role: </label>
+            <input type = "text" id = "RoleDescription" name = "RoleDescription" value = "<%= Roles.RoleDescription %>">
+            <% }); %>
+
+        <br>
+        <input type = "submit" value = "Update" class = "btn btn-primary" style="margin-top: 2%;">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

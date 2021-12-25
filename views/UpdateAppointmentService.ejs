@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <br><br>
+        <div style="padding: 20px; border-style: solid;">
+        <form action = "/AppointmentService/update/<%= locals.id %>" method = "POST" class = "Add">
+            <% AppointmentService.forEach(function(AppointmentServices) { %>
+        <label for = "CustomerFirstName"> Customer First Name: </label>
+        <input type = "text" id = "CustomerFirstName" name = "CustomerFirstName" value = "<%=AppointmentServices.CustomerFirstName %>">
+        <label for = "CustomerLastName" style="margin-left: 10%;"> Customer Last Name: </label>
+        <input type = "text" id = "CustomerLastName" name = "CustomerLastName" value = "<%=AppointmentServices.CustomerLastName %>">
+        <br><br>
+        <label for = "AppointmentDate"> Appointment Date: </label>
+        <input type = "date" id = "AppointmentDate" name = "AppointmentDate" value = "<%=AppointmentServices.AppointmentDate %>">
+        <br><br>
+        <label for = "ServiceName" style="margin-left: auto;"> Service: </label>
+        <input type = "text" id = "ServiceName" name = "ServiceName" value = "<%=AppointmentServices.ServiceName %>">
+        <br><br>
+        <% }); %>
+        <input type = "submit">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

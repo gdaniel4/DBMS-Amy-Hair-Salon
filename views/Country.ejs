@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <style> 
+        table{
+            border-collapse: collapse;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        th, td{
+            padding: 5px;
+            text-align: center;
+            width: 50px;
+        }
+        th{
+            background-color: rgb(200, 220, 255);
+        }
+    </style>
+    <main>
+        <div>
+             <a href = "/Country/add" class = "btn btn-info" style= "margin-top: 10px; margin-bottom: 10px; margin-left: 35%;"> Add Country </a>
+        </div>
+            <table id = Country> 
+                <tr>
+                    <th>ID</th>
+                    <th>Country Code</th> 
+                    <th>Country Initial</th> 
+                    <th>Country Name</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                <% locals.Country.forEach(function(Countrys) { %> 
+                <tr>
+                    <td><%= Countrys.CountryID %></td>
+                    <td><%= Countrys.CountryCode %> </td>
+                    <td><%= Countrys.CountryInitial %> </td> 
+                    <td><%= Countrys.CountryName %> </td> 
+                    <td>
+                    <form action = "/Country/update/<%= Countrys.CountryID %>" method = "GET">
+                        <input type = "hidden" name = "id" value = <%= Countrys.CountryID %>> 
+                        <input type = "submit" value = "Update" class = "btn btn-primary">
+                    </form>
+                    </td>
+                    <td>
+                    <form action = "/Country/delete/<%= Countrys.CountryID %>" method = "GET">
+                        <input type = "hidden" name = "id" value = <%= Countrys.CountryID %>> 
+                        <input type = "submit" value = "Delete" class = "btn btn-danger"> 
+                    </td>
+                    </form>
+                </tr>
+                <% }); %>
+            </table>
+            </div>
+            <br><br>
+    </main>
+</body>
+</html>

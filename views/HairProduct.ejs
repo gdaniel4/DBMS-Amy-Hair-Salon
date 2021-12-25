@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <style> 
+        table{
+            border-collapse: collapse;
+            width: 120%;
+            margin: 0px auto;
+        }
+        th, td{
+            padding: 5px;
+            text-align: center;
+        }
+        th{
+            background-color: rgb(200, 220, 255);
+        }
+    </style>
+    <main>
+        <div>
+             <a href = "/HairProduct/add" class = "btn btn-info" style= "margin-top: 10px; margin-bottom: 10px; margin-left: 35%;"> Add Hair Product </a>
+        </div>
+            <div>
+            <table id = HairProduct> 
+                <tr>
+                    <th style="width: 50px">ID</th>
+                    <th>Product Type ID</th> 
+                    <th>Product Name</th> 
+                    <th>Product Description</th>
+                    <th>Product Volume</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+                <% locals.HairProduct.forEach(function(HairProducts) { %> 
+                <tr>
+                    <td><%= HairProducts.ProductID %> </td>
+                    <td><%= HairProducts.ProductTypeID %> </td> 
+                    <td><%= HairProducts.ProductName %> </td> 
+                    <td><%= HairProducts.ProductDescription %> </td> 
+                    <td><%= HairProducts.ProductVolume %> </td> 
+                    <td>
+                        <form action = "/HairProduct/update/<%= HairProducts.ProductID %>" method = "GET">
+                            <input type = "hidden" name = "id" value = <%= HairProduct.ProductID %>> 
+                            <input type = "submit" value = "Update" class = "btn btn-primary">
+                        </form>
+                        </td>
+                        <td>
+                        <form action = "/HairProduct/delete/<%= HairProducts.ProductID %>" method = "GET">
+                            <input type = "hidden" name = "id" value = <%= HairProduct.ProductID %>> 
+                            <input type = "submit" value = "Delete" class = "btn btn-danger"> 
+                        </td>
+                        </form>
+                </tr>
+                <% }); %>
+            </table>
+            </div>
+            <br><br>
+    </main>
+</body>
+</html>

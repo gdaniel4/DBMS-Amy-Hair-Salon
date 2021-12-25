@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <div style="padding: 20px; border-style: solid;">
+        <form action = "/Appointment/add" method = "POST" class = "Add">
+        <label for = "CustomerFirstName"> Customer First Name: </label>
+        <input type = "text" id = "CustomerFirstName" name = "CustomerFirstName">
+        <label for = "CustomerLastName" style="margin-left: 10%;"> Customer Last Name: </label>
+        <input type = "text" id = "CustomerLastName" name = "CustomerLastName">
+        <br><br>
+        <label for = "EmployeeFirstName""> Employee First Name: </label>
+        <input type = "text" id = "EmployeeFirstName" name = "EmployeeFirstName">
+        <label for = "EmployeeLastName" style="margin-left: 10%;"> Employee Last Name: </label>
+        <input type = "text" id = "EmployeeLastName" name = "EmployeeLastName">
+        <br><br>
+        <label for = "AppointmentDate" style="margin-left: 10%;"> Appointment Date: </label>
+        <input type = "date" id = "AppointmentDate" name = "AppointmentDate">
+        <label for = "AppointmentTime" style="margin-left: 10%;"> Appointment Time: </label>
+        <input type = "time" id = "AppointmentTime" name = "AppointmentTime">
+        <br><br>
+        <label for = "ServiceName" style="margin-left: auto;"> Service: </label>
+        <select id = "ServiceName" name = "ServiceName"> 
+            <% Service.forEach(function(Services) { %>
+            <option><%= Services.ServiceName %></option>
+            <% }); %>
+        </select>
+        <br><br>
+        <input type = "submit">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

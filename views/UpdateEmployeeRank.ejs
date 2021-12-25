@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <div style="padding: 20px; border-style: solid;">
+        <form action = "/EmployeeRank/update/<%= locals.id %>" method = "POST" class = "Add">
+            <% EmployeeRank.forEach(function(EmployeeRanks) { %>
+        <br><br><br>
+        <label for = "RankTitle" style="margin-left: 10%;"> Rank Title: </label>
+        <input type = "text" id = "RankTitle" name = "RankTitle" value = "<%= EmployeeRanks.RankTitle %>">
+        <br><br>
+        <% }); %>
+        <input type = "submit">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

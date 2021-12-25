@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <div style="padding: 20px; ">
+        <form action = "/Role/add" method = "POST" class = "Add">
+        <br><br><br>
+        <label for = "RoleTitle"> Role Title: </label>
+        <input type = "text" id = "RoleTitle" name = "RoleTitle">
+        <label for = "RoleDescription"> Role Description: </label>
+        <input type = "text" id = "RoleDescription" name = "RoleDescription">
+
+    
+        <br><br>
+
+        <input type = "submit">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

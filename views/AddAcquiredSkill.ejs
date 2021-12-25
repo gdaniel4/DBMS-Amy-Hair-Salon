@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <br><br>
+        <div style="padding: 20px; border-style: solid;">
+        <form action = "/AcquiredSkill/add" method = "POST" class = "Add">
+        <br><br><br>
+        <label for = "EmployeeFirstName""> Employee First Name: </label>
+        <input type = "text" id = "EmployeeFirstName" name = "EmployeeFirstName">
+        <label for = "EmployeeLastName" style="margin-left: 10%;"> Employee Last Name: </label>
+        <input type = "text" id = "EmployeeLastName" name = "EmployeeLastName">
+        <br><br>
+        <label for = "SkillName" style="margin-left: 10%;"> Skill Name: </label>
+        <select id = "SkillName" name = "SkillName"> 
+            <% Skill.forEach(function(Skills) { %>
+            <option><%= Skills.SkillName %></option>
+            <% }); %>
+        </select>
+        <label for = "DateAcq" style="margin-left: 10%;"> Acquired Date: </label>
+        <input type = "date" id = "DateAcq" name = "DateAcq">
+        <br><br>
+        <label for = "AcqSkillInstitution" style="margin-left: auto;"> Institution: </label>
+        <input type = "text" id = "AcqSkillInstitution" name = "AcqSkillInstitution">
+        <label for = "AcqSkillState" style="margin-left: 10%;"> State Acquired: </label>
+        <input type = "text" id = "AcqSkillState" name = "AcqSkillState">
+        <br><br>
+
+        <input type = "submit">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

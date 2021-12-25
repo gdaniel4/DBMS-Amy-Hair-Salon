@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    <style>h1 {text-align: center;}</style>
+        
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <div style="padding: 20px; border: solid; margin-top: 10%;">
+<!--CHECK FOR PROBLEMS GETTING ID FROM JS SIDE-->
+        <h1>Update Product Type</h1>
+        <br>
+        <br>
+
+        <form action = "/ProductType/update/<%= locals.id %>" method = "POST" class = "Update">
+        <% ProductType.forEach(function(ProductTypes) { %>
+        <label for = "ProductType"> Type of Product: </label>
+        <input type = "text" id = "ProductType" name = "ProductType" value = "<%= ProductTypes.ProductType %>">
+        <label for = "Color"> Color (if not applicable, put N/A): </label>
+        <input type = "text" id = "Color" name = "Color" value = "<%= ProductTypes.Color %>">
+        <% }); %>
+        <br>
+        <input type = "submit" value = "Update" class = "btn btn-primary" style="margin-top: 2%;">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

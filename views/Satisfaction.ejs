@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <style> 
+        table{
+            border-collapse: collapse;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        th, td{
+            padding: 5px;
+            text-align: center;
+        }
+        th{
+            background-color: rgb(200, 220, 255);
+        }
+    </style>
+    <main>
+        <div>
+             <a href = "/Satisfaction/add" class = "btn btn-info" style= "margin-top: 10px; margin-bottom: 10px; margin-left: 35%;"> Add Satisfaction </a>
+        </div>
+            <table id = Satisfaction> 
+                <tr>
+                    <th style="width: 50px">ID</th>
+                    <th>Appointment ID</th> 
+                    <th>Employee ID</th> 
+                    <th>AppointmentSatisfaction</th>
+                    <th>SatisfactionMeaningID</th>
+                    <th>Comments</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+                <% locals.Satisfaction.forEach(function(Satisfactions) { %> 
+                <tr>
+                    <td><%= Satisfactions.SatisfactionID %> </td>
+                    <td><%= Satisfactions.AppointmentID %> </td>
+                    <td><%= Satisfactions.EmployeeID %> </td> 
+                    <td><%=Satisfactions.AppointmentSatisfaction %> </td> 
+                    <td><%=Satisfactions.SatisfactionMeaningID %> </td> 
+                    <td><%=Satisfactions.Comments %> </td> 
+
+                    <td>
+                    <form action = "/Satisfaction/update/<%= Satisfactions.SatisfactionID %>" method = "GET">
+                        <input type = "hidden" name = "id" value = <%= Satisfactions.SatisfactionID %>> 
+                        <input type = "submit" value = "Update" class = "btn btn-primary">
+                    </form>
+                    </td>
+                    <td>
+                    <form action = "/Satisfaction/delete/<%= Satisfactions.SatisfactionID %>" method = "GET">
+                        <input type = "hidden" name = "id" value = <%= Satisfactions.SatisfactionID %>> 
+                        <input type = "submit" value = "Delete" class = "btn btn-danger"> 
+                    </td>
+                    </form>
+                </tr>
+                <% }); %>
+            </table>
+            </div>
+            <br><br>
+    </main>
+</body>
+</html>

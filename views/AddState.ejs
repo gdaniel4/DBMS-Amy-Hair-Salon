@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <div style="padding: 20px; border-style: solid;">
+        <form action = "/State/add" method = "POST" class = "Add">
+        <br><br><br>
+        <label for = "StateInitial" style="margin-left: 10%;"> State Initial: </label>
+        <input type = "text" id = "StateInitial" name = "StateInitial">
+        <label for = "StateName" style="margin-left: 10%;"> State Name: </label>
+        <input type = "text" id = "StateName" name = "StateName">
+        <br><br>
+        <input type = "submit">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

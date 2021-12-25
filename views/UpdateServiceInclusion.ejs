@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <div style="padding: 20px; border-style: solid;">
+        <form action = "/ServiceInclusion/update/<%= locals.id %>" method = "POST" class = "Add">
+            <% ServiceInclusion.forEach(function(ServiceInclusions) { %>
+        <br>
+        <label for = "ServiceName" style="margin-left: 10%;"> Service Name: </label>
+        <select id = "ServiceName" name = "ServiceName"> 
+            <option selected><%= ServiceInclusions.ServiceName %></option>
+            <% Service.forEach(function(Services) { %>
+            <option> <%= Services.ServiceName %> </option>
+        <% }); %>
+    </select>
+        <label for = "InclusionName" style="margin-left: 10%;"> Inclusion Name: </label>
+        <select id = "InclusionName" name = "InclusionName"> 
+            <option selected><%= ServiceInclusions.InclusionName %></option>
+            <% Inclusion.forEach(function(Inclusions) { %>
+            <option> <%= Inclusions.InclusionName %> </option>
+        <% }); %>
+    </select>
+        <% }); %>
+        <br><br>
+        <input type = "submit">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

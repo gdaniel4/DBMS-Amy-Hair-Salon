@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <div style="padding: 20px; border-style: solid;">
+        <form action = "/EmployeeTimeOff/add" method = "POST" class = "Add">
+        <label for = "EmployeeFirstName"> Employee First Name: </label>
+        <input type = "text" id = "EmployeeFirstName" name = "EmployeeFirstName">
+        <label for = "EmployeeLastName" style="margin-left: 10%;"> Employee Last Name: </label>
+        <input type = "text" id = "EmployeeLastName" name = "EmployeeLastName">
+        <br><br>
+        <label for = "StartTimeOffDate" style="margin-left: 10%;"> Start Time Off Date: </label>
+        <input type = "date" id = "StartTimeOffDate" name = "StartTimeOffDate">
+        <label for = "AvailabilityDate" style="margin-left: 10%;"> Availability Date: </label>
+        <input type = "date" id = "AvailabilityDate" name = "AvailabilityDate">
+        <br><br>
+        <label for = "Reason" style="margin-left: auto;"> Reason: </label>
+        <input type = "text" id = "Reason" name = "Reason">
+        <br><br>
+        <input type = "submit">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

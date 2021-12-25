@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <div style="padding: 20px; border-style: solid;">
+        <form action = "/CustomerStatus/update/<%= locals.id %>" method = "POST" class = "Add">
+            <% CustomerStatus.forEach(function(CustomerStatuses) { %>
+        <br><br><br>
+        <label for = "StatusDescription" style="margin-left: 10%;"> Status Description: </label>
+        <input type = "text" id = "StatusDescription" name = "StatusDescription" value = "<%=CustomerStatuses.StatusDescription %>">
+        <br><br>
+            <% }); %>
+        <input type = "submit">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

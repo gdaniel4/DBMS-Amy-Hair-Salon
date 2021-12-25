@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <br><br>
+        <div style="padding: 20px; border-style: solid; width: 700px; margin-right: auto; margin-left: auto;">
+        <form action = "/ServiceTool/add" method = "POST" class = "Add">
+            <br>
+        <label for = "ToolName"> Tool Name: </label>
+        <select id = "Tool" name = "Tool"> 
+            <% Tool.forEach(function(Tools) { %>
+            <option><%= Tools.ToolName %></option>
+            <% }); %>
+        </select>
+        <label for = "ServiceName" style="margin-left: 10%;"> Service Name: </label>
+        <select id = "ServiceName" name = "ServiceName"> 
+            <% Service.forEach(function(Services) { %>
+            <option><%= Services.ServiceName %></option>
+            <% }); %>
+        </select>
+        <br><br>
+        <label for = "Quantity" style="margin-left: 10%;"> Quantity: </label>
+        <input type = "text" id = "Quantity" name = "Quantity" style="width: 50px;">
+        <label for = "Unit" style="margin-left: 10%;"> Unit: </label>
+        <input type = "text" id = "Unit" name = "Unit" style="width: 50px;">
+        <br><br>
+        <input type = "submit">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

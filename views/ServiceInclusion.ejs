@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <style> 
+        table{
+            border-collapse: collapse;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        th, td{
+            padding: 5px;
+            text-align: center;
+        }
+        th{
+            background-color: rgb(200, 220, 255);
+        }
+    </style>
+    <main>
+        <div>
+             <a href = "/ServiceInclusion/add" class = "btn btn-info" style= "margin-top: 10px; margin-bottom: 10px; margin-left: 35%;"> Add Service Inclusion </a>
+        </div>
+            <table id = ServiceInclusion> 
+                <tr>
+                    <th style="width: 50px">ID</th>
+                    <th>Service ID</th> 
+                    <th>Inclusion ID</th> 
+                    <th>Inclusion Name</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+                <% locals.ServiceInclusion.forEach(function(ServiceInclusions) { %> 
+                <tr>
+                    <td><%= ServiceInclusions.ServiceInclusionID %></td>
+                    <td><%= ServiceInclusions.ServiceID %> </td>
+                    <td><%= ServiceInclusions.InclusionID %> </td> 
+                    <td><%= ServiceInclusions.InclusionName %> </td> 
+                    <td>
+                    <form action = "/ServiceInclusion/update/<%= ServiceInclusions.ServiceInclusionID %>" method = "GET">
+                        <input type = "hidden" name = "id" value = <%= ServiceInclusions.ServiceInclusionID %>> 
+                        <input type = "submit" value = "Update" class = "btn btn-primary">
+                    </form>
+                    </td>
+                    <td>
+                    <form action = "/ServiceInclusion/delete/<%= ServiceInclusions.ServiceInclusionID %>" method = "GET">
+                        <input type = "hidden" name = "id" value = <%= ServiceInclusions.ServiceInclusionID %>> 
+                        <input type = "submit" value = "Delete" class = "btn btn-danger"> 
+                    </td>
+                    </form>
+                </tr>
+                <% }); %>
+            </table>
+            </div>
+            <br><br>
+    </main>
+</body>
+</html>

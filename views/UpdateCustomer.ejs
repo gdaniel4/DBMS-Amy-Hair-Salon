@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <main>
+        <div style="padding: 20px; border: solid; margin-top: 10%;">
+            <% Customer.forEach(function(Customers) { %> 
+        <form action = "/Customer/update/<%= locals.id %>" method = "POST" class = "Update">
+            <label for = "CustomerFirstName"> Customer First Name: </label>
+            <input type = "text" id = "CustomerFirstName" name = "CustomerFirstName" value = "<%= Customers.CustomerFirstName %>">
+            <label for = "CustomerLastName" style="margin-left: 10%;"> Customer Last Name: </label>
+            <input type = "text" id = "CustomerLastName" name = "CustomerLastName" value = "<%= Customers.CustomerLastName %>">
+            <br><br>
+            <label for = "CustomerHomeNumber"> Customer Home Number: </label>
+            <input type = "text" id = "CustomerHomeNumber" name = "CustomerHomeNumber" style= "width: 120px" value = "<%= Customers.CustomerHomeNumber %>">
+            <label for = "CustomerCellNumber" style="margin-left: 10%;"> Customer Cell Number: </label>
+            <input type = "text" id = "CustomerCellNumber" name = "CustomerCellNumber" style= "width: 120px" value= "<%= Customers.CustomerCellNumber %>">
+            <br><br>
+            <label for = "State"> State: </label>
+            <select id = "State" name = "State"> 
+                <option selected>TX</option>
+                <% State.forEach(function(States) { %>
+                <option><%= States.StateInitial %></option>
+                <% }); %>
+            </select>
+            <label for = "Country" style="margin-left: 10%;"> Country: </label>
+            <select id = "Country" name = "Country"> 
+                <option selected>United States of America</option>
+                <% Country.forEach(function(Countrys) { %>
+                <option><%= Countrys.CountryName %></option>
+                <% }); %>
+            </select>
+            <label for = "Status" style="margin-left: 10%;"> Status: </label>
+            <select id = "Status" name = "Status"> 
+                <% CustomerStatus.forEach(function(CustomerStatuses) { %>
+                <option selected><%=Customers.StatusDescription %></option>
+                <option><%= CustomerStatuses.StatusDescription %></option>
+                <% }); %>
+            </select>
+            <br><br>
+            <label for = "CustomerStrike" style="margin-left: 10%;"> Customer Strike: </label>
+            <input type = "text" id = "CustomerStike" name = "CustomerStrike" style="width: 60px;"value = "<%= Customers.CustomerStrike %>">
+            <br><br>
+            <label for = "StrikeComment"> Strike Comment: </label>
+            <br>
+            <textarea id = "StrikeComment" name = "StrikeComment" rows="6" cols="100">
+            <%= Customers.StrikeComment %>
+            </textarea>
+            <% }); %>
+        <br><br><br>
+        <input type = "submit" value = "Update" class = "btn btn-primary" style="margin-top: 2%;">
+        </form>
+        </div>
+    </main>
+</body>
+</html>

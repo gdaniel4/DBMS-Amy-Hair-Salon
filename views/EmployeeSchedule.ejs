@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <%- include('../views/head'); %> <!--Include head file-->
+    </head>
+<body class = "container">
+    <header>
+        <%- include('../views/header'); %> <!--Include header file-->
+    </header>
+    <style> 
+        table{
+            border-collapse: collapse;
+            width: 90%;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        
+        }
+        th, td{
+            padding: 3px;
+            
+        }
+        th{
+            background-color: rgb(200, 220, 255);
+        }
+    </style>
+    <main>
+        <div>
+             <a href = "/EmployeeSchedule/add" class = "btn btn-info" style= "margin-top: 10px; margin-bottom: 10px; margin-left: 35%;"> Add Schedule </a>
+        </div>
+       
+            <table id = Schedule> 
+                <tr>
+                    <th>ID</th>
+                    <th>Employee ID</th> 
+                    <th>Days of Operation ID</th> 
+                    <th>Employee First Name</th>
+                    <th>Employee Last Name</th>
+                    <th>Day of Week</th>
+                    <th>Clock In</th>
+                    <th>Clock Out</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+                <% locals.EmployeeSchedule.forEach(function(EmployeeSchedules) { %> 
+                <tr>
+                    <td><%= EmployeeSchedules.ScheduleID %> </td>
+                    <td><%= EmployeeSchedules.EmployeeID %> </td>
+                    <td><%= EmployeeSchedules.DaysofOperationID %> </td>
+                    <td><%= EmployeeSchedules.EmployeeFirstName %> </td> 
+                    <td><%= EmployeeSchedules.EmployeeLastName %> </td> 
+                    <td><%= EmployeeSchedules.DayofWeek %> </td>
+                    <td><%= EmployeeSchedules.ClockIn %> </td>
+                    <td><%= EmployeeSchedules.ClockOut %> </td>
+                    <td>
+                    <form action = "/EmployeeSchedule/update/<%= EmployeeSchedules.ScheduleID %>" method = "GET">
+                        <input type = "hidden" name = "id" value = <%= EmployeeSchedules.ScheduleID %>> 
+                        <input type = "submit" value = "Update" class = "btn btn-primary">
+                    </form>
+                    </td>
+                    <td>
+                    <form action = "/EmployeeSchedule/delete/<%= EmployeeSchedules.ScheduleID %>" method = "GET">
+                        <input type = "hidden" name = "id" value = <%= EmployeeSchedules.ScheduleID %>> 
+                        <input type = "submit" value = "Delete" class = "btn btn-danger"> 
+                    </td>
+                    </form>
+                </tr>
+                <% }); %>
+            </table>
+            <br><br>
+    </main>
+</body>
+</html>
